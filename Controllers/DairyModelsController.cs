@@ -113,7 +113,6 @@ namespace Diaryapp.Controllers
 
             return RedirectToAction(actionName: "Index"); // Redirect to index page
 
-
         }
 
     }
