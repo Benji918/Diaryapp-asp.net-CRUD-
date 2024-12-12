@@ -1,0 +1,46 @@
+﻿@model List<DiaryModel>
+
+<div class="container">
+    <div class="row pt-4">
+        <div class="col-6">
+            <a class="btn btn-primary" asp-controller="DairyModels" asp-action="Create">
+                <i class="btn btn-journal-plus"></i>Create New Diary Entry
+            </a>
+            
+        </div>
+        <div class="col-6">
+            <h2>Diary Entries</h2>
+        </div>
+    </div>
+</div>
+
+<div class="table-responsive">
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var entry in Model)
+            {
+                <tr>
+                    <td>@entry.Title</td>
+                    <td>@entry.Content</td>
+                    <td>@entry.Created_at</td>
+                    <td>
+                        <a asp-controller="DairyModels" asp-action="Edit" asp-route-id="@entry.Id" class="btn btn-primary btn-small">Edit</a>
+                        <a asp-controller="DairyModels" asp-action="Delete" asp-route-id="@entry.Id" class="btn btn-danger btn-small">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+</div>
